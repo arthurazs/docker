@@ -1,0 +1,22 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/settings
+
+providers:
+  openweathermap: <API_KEY>
+
+headerStyle: boxedWidgets
+
+layout:
+  arr:
+    style: row
+    columns: 2
+    icon: mdi-docker
+  Management:
+    icon: mdi-cog
+  Media:
+    icon: mdi-file-document-edit-outline
+
+# showStats: true
+
+background: https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0

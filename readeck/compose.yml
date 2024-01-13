@@ -1,0 +1,17 @@
+services:
+  readeck:
+    image: codeberg.org/readeck/readeck:latest
+    container_name: readeck
+    hostname: readeck
+    network_mode: bridge
+    ports:
+      - 8000:8000
+    volumes:
+      - /home/flaae/docker/readeck/data:/readeck
+    labels:
+      - homepage.group=Media
+      - homepage.name=Readeck
+      - homepage.icon=riot # theres no readeck icon yet
+      - homepage.href=https://readeck.news13.nl
+      - homepage.description=Read-Later Manager
+    restart: unless-stopped

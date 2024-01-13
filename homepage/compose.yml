@@ -1,0 +1,12 @@
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    hostname: homepage
+    network_mode: bridge
+    ports:
+      - 3000:3000
+    volumes:
+      - /home/flaae/docker/homepage/config:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always

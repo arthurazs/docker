@@ -1,0 +1,27 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/service-widgets
+
+- resources:
+    cpu: true
+    memory: true
+    disk: /
+    uptime: true
+
+- search:
+    provider: [duckduckgo, google]
+    target: _blank
+
+- datetime:
+    text_size: sm
+    format:
+      dateStyle: medium
+      timeStyle: short
+
+- openweathermap:
+    label: Niteroi # optional
+    latitude: -22.8833
+    longitude: -43.1036
+    units: metric # or imperial
+    provider: openweathermap
+    cache: 5 # Time in minutes to cache API responses, to stay within limits

@@ -1,0 +1,172 @@
+services:
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    hostname: prowlarr
+    ports:
+      - 9696:9696
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Sao_Paulo
+    volumes:
+      - /home/flaae/docker/arr/prowlarr:/config
+    labels:
+      - homepage.group=arr
+      - homepage.name=Prowlarr
+      - homepage.icon=prowlarr
+      - homepage.href=https://prowlarr.news13.nl
+      - homepage.description=Indexer Manager
+      - homepage.widget.type=prowlarr
+      - homepage.widget.url=https://prowlarr.news13.nl
+      - homepage.widget.key=0cfa0ccf57344e9086372b7983595aaf
+    restart: unless-stopped
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    hostname: radarr
+    ports:
+      - 7878:7878
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Sao_Paulo
+    volumes:
+      - /home/flaae/docker/arr/radarr:/config
+      - /home/flaae/docker/arr/data:/data
+    labels:
+      - homepage.group=arr
+      - homepage.name=Radarr
+      - homepage.icon=radarr
+      - homepage.href=https://radarr.news13.nl
+      - homepage.description=Movie Manager
+      - homepage.widget.type=radarr
+      - homepage.widget.url=https://radarr.news13.nl
+      - homepage.widget.key=d0ae1ecad5634e26ab90bd7d9e141ee4
+      - homepage.widget.enableQueue=true
+    restart: unless-stopped
+  transmission:
+    image: lscr.io/linuxserver/transmission:latest
+    container_name: transmission
+    hostname: transmission
+    ports:
+      - 9091:9091
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Sao_Paulo
+      - USER=admin
+      - PASS=${DOCKGE_ARR_PASS}
+    volumes:
+      - /home/flaae/docker/arr/transmission:/config
+      - /home/flaae/docker/arr/data/downloads:/data/downloads
+    labels:
+      - homepage.group=arr
+      - homepage.name=Transmission
+      - homepage.icon=transmission
+      - homepage.href=https://transmission.news13.nl
+      - homepage.description=BitTorrent Client
+      - homepage.widget.type=transmission
+      - homepage.widget.url=https://transmission.news13.nl
+      - homepage.widget.username=admin
+      - homepage.widget.password=${DOCKGE_ARR_PASS}
+    restart: unless-stopped
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    container_name: jellyfin
+    hostname: jellyfin
+    ports:
+      - 8096:8096
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Sao_Paulo
+      - JELLYFIN_PublishedServerUrl=https://jellyfin.news13.nl
+    volumes:
+      - /home/flaae/docker/arr/jellyfin:/config
+      - /home/flaae/docker/arr/data/media:/data/media
+    labels:
+      - homepage.group=arr
+      - homepage.name=Jellyfin
+      - homepage.icon=jellyfin
+      - homepage.href=https://jellyfin.news13.nl
+      - homepage.description=Media System
+    restart: unless-stopped
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr
+    hostname: bazarr
+    ports:
+      - 6767:6767
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Sao_Paulo
+    volumes:
+      - /home/flaae/docker/arr/bazarr:/config
+      - /home/flaae/docker/arr/data/media:/data/media
+    labels:
+      - homepage.group=arr
+      - homepage.name=Bazarr
+      - homepage.icon=bazarr
+      - homepage.href=https://bazarr.news13.nl
+      - homepage.description=Subtitle Manager
+    restart: unless-stopped
+  lidarr:
+    image: lscr.io/linuxserver/lidarr:latest
+    container_name: lidarr
+    hostname: lidarr
+    ports:
+      - 8686:8686
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Sao_Paulo
+    volumes:
+      - /home/flaae/docker/arr/lidarr:/config
+      - /home/flaae/docker/arr/data:/data
+    labels:
+      - homepage.group=arr
+      - homepage.name=Lidarr
+      - homepage.icon=lidarr
+      - homepage.href=https://lidarr.news13.nl
+      - homepage.description=Music Manager
+    restart: unless-stopped
+  jellyseerr:
+    image: fallenbagel/jellyseerr:latest
+    container_name: jellyseerr
+    hostname: jellyseerr
+    ports:
+      - 5055:5055
+    environment:
+      - LOG_LEVEL=info
+      - TZ=America/Sao_Paulo
+    volumes:
+      - /home/flaae/docker/arr/jellyseerr:/app/config
+    labels:
+      - homepage.group=arr
+      - homepage.name=Jellyseerr
+      - homepage.icon=jellyseerr
+      - homepage.href=https://jellyseerr.news13.nl
+      - homepage.description=Media Request Manager
+    restart: unless-stopped
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    hostname: sonarr
+    ports:
+      - 8989:8989
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Sao_Paulo
+    volumes:
+      - /home/flaae/docker/arr/sonarr:/config
+      - /home/flaae/docker/arr/data:/data
+    labels:
+      - homepage.group=arr
+      - homepage.name=Sonarr
+      - homepage.icon=sonarr
+      - homepage.href=https://sonarr.news13.nl
+      - homepage.description=Series Manager
+    restart: unless-stopped

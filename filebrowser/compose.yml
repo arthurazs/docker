@@ -1,0 +1,22 @@
+services:
+  filebrowser:
+    image: filebrowser/filebrowser:s6
+    container_name: filebrowser
+    hostname: filebrowser
+    network_mode: bridge
+    ports:
+      - 8081:80
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - /home/flaae/docker/filebrowser/srv:/srv
+      - /home/flaae/docker/filebrowser/database/filebrowser.db:/database/filebrowser.db
+      - /home/flaae/docker/filebrowser/config/settings.json:/config/settings.json
+    labels:
+      - homepage.group=Media
+      - homepage.name=File Browser
+      - homepage.icon=filebrowser
+      - homepage.href=https://filebrowser.news13.nl
+      - homepage.description=File Manager
+    restart: unless-stopped
