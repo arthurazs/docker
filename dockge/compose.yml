@@ -8,15 +8,14 @@ services:
       - 5001:5001
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /home/flaae/docker/dockge/data:/app/data
+      - /home/flaae/.local/docker/dockge/data:/app/data
       # change container to reflect same structure for stacks?
-      - /home/flaae/docker/dockge/stacks:/opt/stacks
+      - /home/flaae/.local/docker/dockge/stacks:/opt/stacks
     environment:
       - DOCKGE_STACKS_DIR=/opt/stacks
     labels:
       - homepage.group=Management
       - homepage.name=Dockge
       - homepage.icon=uptime-kuma  # theres no dockge icon yet
-      - homepage.href=https://dockge.news13.nl
       - homepage.description=Docker Compose Manager
     restart: always

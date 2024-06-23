@@ -7,11 +7,10 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - /home/flaae/docker/readeck/data:/readeck
+      - /home/flaae/.local/docker/readeck/data:/readeck
     labels:
       - homepage.group=Media
       - homepage.name=Readeck
       - homepage.icon=riot # theres no readeck icon yet
-      - homepage.href=https://readeck.news13.nl
       - homepage.description=Read-Later Manager
     restart: unless-stopped

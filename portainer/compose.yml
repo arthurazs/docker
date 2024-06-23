@@ -8,11 +8,10 @@ services:
       - 9443:9443
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /home/flaae/docker/portainer/data:/data
+      - /home/flaae/.local/docker/portainer/data:/data
     labels:
       - homepage.group=Management
       - homepage.name=Portainer
       - homepage.icon=portainer
-      - homepage.href=https://portainer.news13.nl
       - homepage.description=Container Management
     restart: always
