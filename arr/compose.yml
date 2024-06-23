@@ -51,7 +51,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=America/Sao_Paulo
-      - USER=admin
+      - USER=flaae
       - PASS=${TRANSMISSION_PASS}
     volumes:
       - /home/flaae/.local/docker/arr/transmission:/config
@@ -62,7 +62,7 @@ services:
       - homepage.icon=transmission
       - homepage.description=BitTorrent Client
       - homepage.widget.type=transmission
-      - homepage.widget.username=admin
+      - homepage.widget.username=flaae
       - homepage.widget.password=${TRANSMISSION_PASS}
     restart: unless-stopped
   jellyfin:
