@@ -52,7 +52,7 @@ services:
       - PGID=1000
       - TZ=America/Sao_Paulo
       - USER=admin
-      - PASS=${DOCKGE_ARR_PASS}
+      - PASS=${TRANSMISSION_PASS}
     volumes:
       - /home/flaae/.local/docker/arr/transmission:/config
       - /home/flaae/.local/docker/arr/data/downloads:/data/downloads
