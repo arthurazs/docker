@@ -1,0 +1,46 @@
+# general
+*.json
+*.xml
+
+# arr
+*.db
+*.db-shm
+*.db-wal
+*.pid
+
+arr/bazarr/config
+arr/bazarr/db
+arr/bazarr/log
+
+arr/jellyfin/data
+arr/jellyfin/log
+
+arr/jellyseerr/db
+arr/jellyseerr/logs
+
+arr/lidarr/logs
+
+arr/prowlarr/Definitions
+arr/prowlarr/Sentry
+arr/prowlarr/logs
+
+arr/radarr/MediaCover
+arr/radarr/Sentry
+arr/radarr/logs
+
+arr/sonarr/Sentry
+arr/sonarr/logs
+
+arr/transmission/resume
+arr/transmission/torrents
+arr/transmission/dht.dat
+
+# dockge
+dockge/data
+dockge/stacks
+
+# homepage
+homepage/config
+
+# readeck
+readeck/data
